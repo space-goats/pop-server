@@ -6,7 +6,7 @@ class CaseSerializer(ModelSerializer):
     class Meta:
         model = Case
         fields = ('id', 'case_id', 'title', 
-                  'case_type', 'status', 'last_date', 'party', 'docketentry')
+                  'case_type', 'status', 'last_date', 'parties', 'docket')
         depth = 1
 
 

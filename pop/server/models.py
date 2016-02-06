@@ -15,16 +15,18 @@ class Case(models.Model):
 
 
 class Party(models.Model):
-    case = models.ForeignKey(Case, on_delete=models.CASCADE, related_name="party")
+    case = models.ForeignKey(Case, on_delete=models.CASCADE, related_name="parties")
     name = models.CharField(max_length=50, blank=True)
     party_type = models.CharField(max_length=50, blank=True)
     side = models.CharField(max_length=50, blank=True)
 
 
 class DocketEntry(models.Model):
-    case = models.ForeignKey('Case', on_delete=models.CASCADE, related_name="docketentry")
+    case = models.ForeignKey('Case', on_delete=models.CASCADE, related_name="docket")
     side = models.CharField(max_length=50, blank=True)
     date = models.CharField(max_length=50, blank=True)
     name = models.CharField(max_length=50, blank=True)
     file = models.CharField(max_length=50, blank=True, null=True)
+    def __str__(self):
+        return "{} {}".format(self.case, self.name)
 
