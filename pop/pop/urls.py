@@ -19,6 +19,8 @@ from django.contrib import admin
 from server.views import *
 from rest_framework import routers
 
+admin.autodiscover()
+
 router = routers.DefaultRouter()
 router.register(r'case', CaseList)
 
